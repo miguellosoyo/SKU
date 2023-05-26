@@ -4,3 +4,4 @@ pandas==1.5.2
 streamlit==1.15.1
 xlrd==2.0.1
 XlsxWriter==3.0.3
+streamlit-aggrid==0.2.3
