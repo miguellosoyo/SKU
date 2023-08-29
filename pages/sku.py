@@ -17,7 +17,7 @@ import os
 # Definir área del token de entrada
 # token = st.text_input('Ingrese el token de acceso', label_visibility=st.session_state.visibility, disabled=st.session_state.disabled, placeholder='Token de acceso')
 token = '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'
-if token!='':
+# if token!='':
 
     # Crear la sesión de GitHub
     # github_session = Github(token)
