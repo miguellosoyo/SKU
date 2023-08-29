@@ -12,7 +12,6 @@ import pandas as pd
 import numpy as np
 import requests
 import base64
-import data
 import time
 import pytz
 import io
@@ -463,8 +462,8 @@ def highlight_percent_cells(val):
 st.set_page_config(page_title='SKU - Stock Keeping Unit for TWW Positions', page_icon=':bar_chart:', layout='wide')
 
 # Cargar información de todas las posiciones
-tribal_wl, tribal_rt, labor_costs, out = data.load_data()
-df_budgets_ok, detail_labor_costs = data.load_finance_data(labor_costs)
+tribal_wl, tribal_rt, labor_costs, out = load_data()
+df_budgets_ok, detail_labor_costs = load_finance_data(labor_costs)
 projects = df_budgets_ok['Proyecto'].unique()
 
 # Definir las pestañas para cada categoría de nivel
@@ -651,7 +650,7 @@ with detail:
     c1.caption(f'Cifras expresadas en quetzales.')
 
     # Obtener gráfico de costos
-    options_half_doughnut = data.half_doughnut(df_transposed.data)
+    options_half_doughnut = half_doughnut(df_transposed.data)
     with c2:
         st_echarts(options=options_half_doughnut, height="600px")
     
