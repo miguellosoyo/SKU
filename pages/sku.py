@@ -9,7 +9,6 @@ import pandas as pd
 import numpy as np
 import requests
 import base64
-import data
 import time
 import pytz
 import io
@@ -484,7 +483,7 @@ def callback_sr_management():
     st.session_state.button_clicked_sr_management = True
 
 # Cargar información de todas las posiciones
-tribal_wl, tribal_rt, df, out = data.load_data()
+tribal_wl, tribal_rt, df, out = load_data()
 
 # Integrar título de la barra lateral
 st.header('⚙️ Stock Keeping Unit')
@@ -523,7 +522,7 @@ with entry:
         # st.write(entry_job)
         # st.write(df)
         
-        df_capacity = data.get_installed_capacity(df, job=entry_job, key=cat)
+        df_capacity = get_installed_capacity(df, job=entry_job, key=cat)
         selection = df_capacity['selected_rows']
         
         # Concatenar información a tabla SKUs
@@ -557,7 +556,7 @@ with front:
     
     # Cargar información de capacidad instalada
     if st.session_state.button_clicked_frontline:
-        df_capacity = data.get_installed_capacity(df, job=frontline_job, key=cat)
+        df_capacity = get_installed_capacity(df, job=frontline_job, key=cat)
         selection = df_capacity['selected_rows']
         
         # Concatenar información a tabla SKUs
@@ -591,7 +590,7 @@ with manage:
     
     # Cargar información de capacidad instalada
     if st.session_state.button_clicked_management:
-        df_capacity = data.get_installed_capacity(df, job=management_job, key=cat)
+        df_capacity = get_installed_capacity(df, job=management_job, key=cat)
         selection = df_capacity['selected_rows']
         
         # Concatenar información a tabla SKUs
@@ -624,7 +623,7 @@ with sr_manage:
     
     # Cargar información de capacidad instalada
     if st.session_state.button_clicked_sr_management:            
-        df_capacity = data.get_installed_capacity(df, job=sr_management_job, key=cat)
+        df_capacity = get_installed_capacity(df, job=sr_management_job, key=cat)
         selection = df_capacity['selected_rows']
         
         # Concatenar información a tabla SKUs
