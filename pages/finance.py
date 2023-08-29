@@ -23,10 +23,10 @@ token = 'github_pat_11AKXHFXI0cuTpyWtOibWd_6rzHzga7aJtPpWRdIzVA8Av3RnR464DIk7EqV
 if token!='':
 
     # Crear la sesión de GitHub
-    github_session = Github(token)
+    # github_session = Github(token)
 
     # Obtener el repositorio de trabajo
-    github_repo = github_session.get_repo('miguellosoyo/SKU')
+    # github_repo = github_session.get_repo('miguellosoyo/SKU')
 
 # Función que permite la extracción del número de la semana del mes en la que cae la fecha ingresada
 def week_of_month(dt):
