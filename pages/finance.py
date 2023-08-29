@@ -3,7 +3,6 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 from datetime import datetime as dt, timedelta
 from streamlit_echarts import st_echarts
 from streamlit_echarts import JsCode
-import plotly.graph_objects as go
 from itertools import chain
 from github import Github
 import streamlit as st
