@@ -111,17 +111,15 @@ def load_sku(values:pd.DataFrame):
 @st.cache_data()
 def load_data():
     
-    # Cargar información de Tribal
-    content = github_repo.get_contents('Bandas Salariales.csv')
-    tribal_wl = pd.read_csv(io.StringIO(content.decoded_content.decode('utf-8')))
+    tribal_wl = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/SKU/main/Bandas%20Salariales.csv')
     tribal_wl.columns = [x.title() for x in tribal_wl.columns]
 
     # Definir tipo de cambio QTG/USD
     tc = 0.147679319
     
     # Cargar información del Roster de Tribal
-    content = github_repo.get_contents('Códigos de Posición Tribal.csv')
-    tribal_rt = pd.read_csv(io.StringIO(content.decoded_content.decode('utf-8')))
+    # content = github_repo.get_contents('Códigos de Posición Tribal.csv')
+    tribal_rt = pd.read_csv('https://raw.githubusercontent.com/miguellosoyo/SKU/main/C%C3%B3digos%20de%20Posici%C3%B3n%20Tribal.csv')
     
     # Cruzar información
     tribal_salary = pd.merge(tribal_rt, tribal_wl, left_on='Codigo de Puesto', right_on='Codigo Posicion',  how='left')
